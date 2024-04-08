@@ -1,7 +1,7 @@
 import { Product } from './productsSchema.js';
 
 // Create a new product
-const createProduct = async (req, res) => {
+export const createProduct = async (req, res) => {
   try {
     const product = await Product.create(req.body);
     res.status(201).json(product);
@@ -11,7 +11,7 @@ const createProduct = async (req, res) => {
 };
 
 // Get all products
-const getAllProducts = async (req, res) => {
+export const getAllProducts = async (req, res) => {
   try {
     const products = await Product.find();
     res.json(products);
@@ -21,7 +21,7 @@ const getAllProducts = async (req, res) => {
 };
 
 // Get a product by ID
-const getProductById = async (req, res) => {
+export const getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
     if (product) {
@@ -35,7 +35,7 @@ const getProductById = async (req, res) => {
 };
 
 // Update a product
-const updateProduct = async (req, res) => {
+export const updateProduct = async (req, res) => {
   try {
     const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -52,7 +52,7 @@ const updateProduct = async (req, res) => {
 };
 
 // Delete a product
-const deleteProduct = async (req, res) => {
+export const deleteProduct = async (req, res) => {
   try {
     const product = await Product.findByIdAndDelete(req.params.id);
     if (product) {
@@ -63,12 +63,4 @@ const deleteProduct = async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-};
-
-export {
-  createProduct,
-  getAllProducts,
-  getProductById,
-  updateProduct,
-  deleteProduct,
 };

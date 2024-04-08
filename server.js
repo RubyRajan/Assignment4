@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import errorHandler from './utils/errorHandler.js';
 import { productRouter } from './products/productRoutes.js';
+import { userRouter } from './users/userRoutes.js';
 
 // Load environment variables
 dotenv.config();
@@ -25,6 +26,8 @@ mongoose
   });
 
 app.use('/products', productRouter);
+
+app.use('/users', userRouter);
 
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'Hello Ruby' });
