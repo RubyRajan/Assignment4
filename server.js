@@ -3,6 +3,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import errorHandler from './utils/errorHandler.js';
+import { productRouter } from './products/productRoutes.js';
 
 // Load environment variables
 dotenv.config();
@@ -22,6 +23,8 @@ mongoose
   .catch((error) => {
     console.error(`Error connecting to MongoDB: ${error?.message}`);
   });
+
+app.use('/products', productRouter);
 
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'Hello Ruby' });

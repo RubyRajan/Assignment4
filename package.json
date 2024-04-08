@@ -2,7 +2,7 @@
   "name": "ruby-assignment4",
   "version": "1.0.0",
   "description": "ruby-assignment4",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
     "start": "node server.js",
