@@ -7,6 +7,7 @@ import { productRouter } from './products/productRoutes.js';
 import { userRouter } from './users/userRoutes.js';
 import { commentRouter } from './comments/commentRoutes.js';
 import { cartRouter } from './carts/cartRoutes.js';
+import { orderRouter } from './orders/orderRoutes.js';
 
 // Load environment variables
 dotenv.config();
@@ -34,6 +35,8 @@ app.use('/users', userRouter);
 app.use('/comments', commentRouter);
 
 app.use('/cart', cartRouter);
+
+app.use('/orders', orderRouter);
 
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'Hello Ruby' });
