@@ -72,8 +72,6 @@ export const deleteCartItem = async (req, res) => {
     } else {
       return res.status(404).json({ message: 'Cart item not found' });
     }
-
-    res.json({ message: 'Cart item deleted successfully' });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
